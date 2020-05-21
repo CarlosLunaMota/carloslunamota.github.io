@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#121d2c" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://carloslunamota.github.io/" />
+        <link rel="icon" href="img/favicon.ico" sizes="32x32" />
+
         <title>Pseudolog</title>
-        
-        <!--------------------------------------------------------------------->
 
         <style>
-            body {
-                background-color: #f4f4f4;
-                font-size: 150%;
-                color: #373737;
-                font-family: sans-serif;
-                width: 66%;
-                margin: auto
+            :root {
+              --my-white:   #f4f4f4;
+              --my-black:   #373737;
+              --my-color-1: #E9B000;
+              --my-color-2: #373737;
+              --my-padding: 25px;
             }
-
-            h1 { font-family: monospace; } 
-            a { text-decoration: none; }
-            a:hover { text-decoration: underline; }
-            summary {
-                padding: 5px;
-                font-size: 150%;
-                font-family: monospace;
-                background-color: #373737;
-                color: white;
+            * { font-family:      sans-serif;
+                background-color: var(--my-white);
+                color:            var(--my-black);
             }
-            details p {
-                padding-left: 25px;
-                padding-right: 25px;
+            body { width:     66%;
+                   margin:    auto;
+                   font-size: 120%;
+                   line-height: 1.5;
             }
+            a { text-decoration:none; color: var(--my-color-2); }
+            p { padding: 0px var(--my-padding);    }
+            header details summary { font-size: 200%; }
+            header { margin: var(--my-padding) 0px; }
+            footer { margin: var(--my-padding) 0px;
+                     border-top: 3px solid var(--my-black); }
+            details summary { padding:          5px var(--my-padding);
+                              font-size:        150%;
+                              font-family:      monospace;
+                              background-color: var(--my-black);
+                              color:            var(--my-white);
+                              cursor:           pointer;
+                              transition:       color .5s;
+                              list-style-type:  none;
+                              animation: sweep .5s ease-in;
+            }
+            details summary:focus { outline: none; }
+            details summary::-webkit-details-marker { display: none; }
+            details summary::marker { display: none; }
+            details[open] summary {  color: var(--my-color-1); }
+            details[open] summary ~ * { animation: sweep .5s ease-in; }
+            @keyframes sweep { 0% {opacity: 0;} 100% {opacity: 1;} }
         </style>
     </head>
 
@@ -36,39 +56,49 @@
     
     <body>
 
-        <h1>Pseudolog</h1>
+        <header>
+            <details><summary>/Pseudolog</summary>
+                <p>Blog personal de Carlos Luna Mota.</p>
+            </details>
+        </header>
+        
+        <article>
+            <details><summary>/math/bla</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-        <details><summary>/pseudolog</summary>
-            <p>Blog personal de Carlos Luna Mota.</p>
-        </details>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-        <!--------------------------------------------------------------------->
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </details>
+        </article>
 
-        <details><summary>/math/bla</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </details>
+        <article>
+            <details><summary>/programming/bla</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </details>
+        </article>
 
-        <!--------------------------------------------------------------------->
+        <article>
+            <details><summary>/programming/ble</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </details>
+        </article>
+        
+        <article>
+            <details><summary>/programming/bli</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </details>
+        </article>
 
-        <details><summary>/programming/bla</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </details>
+        <article>
+            <details><summary>/misc/blu</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </details>
+        </article>
 
-        <details><summary>/programming/ble</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </details>
-
-        <details><summary>/programing/bli</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </details>
-
-        <!--------------------------------------------------------------------->
-
-        <details><summary>/misc/blu</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </details>
-
-        <!--------------------------------------------------------------------->
+        <footer>
+            <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:16px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:16px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <a href="https://carloslunamota.github.io/">Carlos Luna-Mota</a></p>
+        </footer>
 
     </body>
 </html>
