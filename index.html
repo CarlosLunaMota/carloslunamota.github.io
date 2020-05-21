@@ -2,45 +2,32 @@
 <html>
     <head>
         <title>Pseudolog</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <!--------------------------------------------------------------------->
 
         <style>
-            .collapsible {
-              background-color: #777;
-              color: white;
-              cursor: pointer;
-              padding: 18px;
-              width: 100%;
-              border: none;
-              text-align: left;
-              outline: none;
-              font-size: 15px;
+            body {
+                background-color: lightgray;
+                font-size: 150%;
+                color: dimgray;
+                font-family: sans-serif;
+                width: 66%;
+                margin: auto
             }
 
-            .active, .collapsible:hover {
-              background-color: #555;
+            h1 { font-family: monospace; } 
+            a { text-decoration: none; }
+            a:hover { text-decoration: underline; }
+            summary {
+                padding: 5px;
+                font-size: 150%;
+                font-family: monospace;
+                background-color: dimgray;
+                color: white;
             }
-
-            .collapsible:after {
-              content: '\002B';
-              color: white;
-              font-weight: bold;
-              float: right;
-              margin-left: 5px;
-            }
-
-            .active:after {
-              content: "\2212";
-            }
-
-            .content {
-              padding: 0 18px;
-              max-height: 0;
-              overflow: hidden;
-              transition: max-height 0.2s ease-out;
-              background-color: #f1f1f1;
+            details p {
+                padding-left: 25px;
+                padding-right: 25px;
             }
         </style>
     </head>
@@ -49,75 +36,39 @@
     
     <body>
 
-        <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-            for (i = 0; i < coll.length; i++) {
-              coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){ content.style.maxHeight = null; }
-                else { content.style.maxHeight = content.scrollHeight + "px"; } 
-              });
-            }
-        </script>
-
-        <!--------------------------------------------------------------------->
-
         <h1>Pseudolog</h1>
 
-        <!--------------------------------------------------------------------->
-
-        <h2>Categoria 1:</h2>
-
-        <button class="collapsible">Post 1.1</button>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-        <!--------------------------------------------------------------------->
-
-        <h2>Categoria 2:</h2>
-        
-        <button class="collapsible">Post 2.1</button>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-        <button class="collapsible">Post 2.2</button>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-        <button class="collapsible">Post 2.3</button>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-        <!--------------------------------------------------------------------->
-
-        <h2>Categoria 3:</h2>
-
-        <button class="collapsible">Post 3.1</button>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-        <!--------------------------------------------------------------------->
-
-        <h2>Categoria 4:</h2>
-
-        <details><summary>Post 4.1</summary>
-            <p>
-
-            #### yes, even hidden code blocks!
-
-            ```python
-            print("hello world!")
-            ```
-
-            </p>
+        <details><summary>/pseudolog</summary>
+            <p>Blog personal de Carlos Luna Mota.</p>
         </details>
-        
+
+        <!--------------------------------------------------------------------->
+
+        <details><summary>/math/bla</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </details>
+
+        <!--------------------------------------------------------------------->
+
+        <details><summary>/programming/bla</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </details>
+
+        <details><summary>/programming/ble</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </details>
+
+        <details><summary>/programing/bli</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </details>
+
+        <!--------------------------------------------------------------------->
+
+        <details><summary>/misc/blu</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </details>
+
+        <!--------------------------------------------------------------------->
+
     </body>
 </html>
