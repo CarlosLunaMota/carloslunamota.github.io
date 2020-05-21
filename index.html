@@ -1,20 +1,107 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Pseudolog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--------------------------------------------------------------------->
+
+        <style>
+            .collapsible {
+              background-color: #777;
+              color: white;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+            }
+
+            .active, .collapsible:hover {
+              background-color: #555;
+            }
+
+            .collapsible:after {
+              content: '\002B';
+              color: white;
+              font-weight: bold;
+              float: right;
+              margin-left: 5px;
+            }
+
+            .active:after {
+              content: "\2212";
+            }
+
+            .content {
+              padding: 0 18px;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+              background-color: #f1f1f1;
+            }
+        </style>
     </head>
 
+    <!------------------------------------------------------------------------->
+    
     <body>
-        <h1>Blog in progress</h1>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){ content.style.maxHeight = null; }
+                else { content.style.maxHeight = content.scrollHeight + "px"; } 
+              });
+            }
+        </script>
+
+        <!--------------------------------------------------------------------->
+
+        <h1>Pseudolog</h1>
+
+        <!--------------------------------------------------------------------->
+
+        <h2>Categoria 1:</h2>
+
+        <button class="collapsible">Post 1.1</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <!--------------------------------------------------------------------->
+
+        <h2>Categoria 2:</h2>
         
+        <button class="collapsible">Post 2.1</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ultrices placerat enim placerat tincidunt. Duis at quam sit amet urna aliquam sagittis ac in nisl. Pellentesque facilisis mauris vitae dictum luctus. Sed malesuada et sem vitae rhoncus. Aenean lobortis sit amet libero eget vehicula. Suspendisse lacinia, neque ut finibus hendrerit, massa metus condimentum leo, at semper nulla nisl in odio. Phasellus tincidunt sapien non est gravida, eu iaculis ligula fermentum. Morbi ornare et orci eu accumsan. Etiam congue, turpis ac interdum consequat, nunc tellus sollicitudin augue, ut fermentum nisl nibh a purus. Nullam at justo nisi. Morbi ornare eleifend justo pretium placerat. Aenean imperdiet neque vitae eleifend auctor. Fusce elit lectus, malesuada in libero vitae, sagittis porta erat.
+        <button class="collapsible">Post 2.2</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
 
-Pellentesque nec enim ut nisl maximus malesuada et condimentum sem. Morbi ultricies dui turpis, tempor condimentum nibh ultrices ac. Aliquam id metus blandit, congue felis sed, vehicula mi. Sed eleifend auctor tellus, ut viverra diam porttitor vel. Nunc mattis purus vitae sapien congue, in consequat tortor viverra. Suspendisse potenti. Nunc justo lectus, rhoncus ac accumsan non, suscipit sed massa. In lobortis est ac arcu maximus, sed malesuada nulla ornare. Cras nec est quis mi pharetra euismod.
+        <button class="collapsible">Post 2.3</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
 
-Nullam nibh justo, tincidunt vel varius rutrum, elementum tempus nisl. Phasellus ante ex, placerat ut magna sit amet, tincidunt pharetra nulla. Quisque vulputate suscipit iaculis. Integer vulputate lectus sed enim ultricies rhoncus. Etiam at tristique lorem. Morbi sit amet arcu sit amet nisl cursus scelerisque sed in arcu. Nullam at tempus turpis. Fusce vitae metus elementum, placerat elit id, ultrices mi. Praesent a mauris in augue accumsan bibendum eu a turpis. Maecenas viverra elementum risus eu pretium. Quisque ac iaculis quam. Curabitur lorem massa, elementum vel odio sit amet, faucibus mollis nunc. Cras nec molestie dui. Maecenas pretium ligula id lectus sagittis, vitae volutpat justo maximus.
+        <!--------------------------------------------------------------------->
 
-Cras tincidunt justo non mauris ultrices dapibus. Aenean tincidunt id lectus ut vehicula. Pellentesque commodo augue sit amet tincidunt varius. Morbi euismod nisl odio, sit amet accumsan risus aliquet vitae. Aliquam pharetra tortor eget mi interdum porttitor. Maecenas justo nulla, bibendum sit amet egestas eget, fermentum pulvinar felis. Maecenas dapibus quam lorem, et luctus risus tincidunt et. Curabitur ante sem, luctus at justo sit amet, porttitor dignissim dui. Suspendisse at nisl congue, ornare lacus sed, tincidunt justo. Donec in velit vel tellus blandit tristique. Nullam imperdiet, nibh sed lobortis bibendum, lectus tellus egestas est, id gravida dui tellus ut erat. Praesent sed lacus dui.
+        <h2>Categoria 3:</h2>
 
-Mauris quis tempus tortor. Mauris varius nulla quis sem condimentum, sit amet dignissim leo sodales. Sed accumsan at eros pulvinar malesuada. Nulla convallis massa ipsum, vitae molestie mauris sodales eu. Nunc luctus bibendum arcu eget accumsan. Sed egestas consequat massa non placerat. Aenean facilisis, ante at pulvinar vestibulum, ligula mi faucibus lorem, non dapibus turpis tellus eu nulla. Nunc vulputate condimentum hendrerit. Aliquam dignissim blandit ante sed eleifend. Phasellus ultricies et tellus sit amet aliquam. Vestibulum bibendum hendrerit aliquet. Nam sit amet velit lectus. 
+        <button class="collapsible">Post 3.1</button>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        
     </body>
 </html>
