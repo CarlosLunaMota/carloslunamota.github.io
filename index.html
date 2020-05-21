@@ -13,9 +13,9 @@
         <style>
             :root {
               --my-white:   #f4f4f4;
-              --my-black:   #373737;
-              --my-color-1: #E9B000;
-              --my-color-2: #373737;
+              --my-black:   #101820; /*#373737;*/
+              --my-color-1: #FEE715; /*#EED202;*/ /*#FFD800;*/ /*#E9B000;*/
+              --my-color-2: #5f5800; /*#423800;*/ /*#B8860B;*/
               --my-padding: 25px;
             }
             * { font-family:      sans-serif;
@@ -24,10 +24,13 @@
             }
             body { width:     66%;
                    margin:    auto;
-                   font-size: 120%;
-                   line-height: 1.5;
+                   font-size: 110%;
+                   line-height: 1.75;
             }
             a { text-decoration:none; color: var(--my-color-2); }
+            blockquote { border-left: 3px solid var(--my-black);
+                         padding-left: var(--my-padding); }
+            pre { font-family: monospace; display: block; }
             p { padding: 0px var(--my-padding);    }
             header details summary { font-size: 200%; }
             header { margin: var(--my-padding) 0px; }
@@ -39,15 +42,15 @@
                               background-color: var(--my-black);
                               color:            var(--my-white);
                               cursor:           pointer;
-                              transition:       color .5s;
+                              transition:       color .6s ease;
                               list-style-type:  none;
-                              animation: sweep .5s ease-in;
+                              animation: sweep .3s ease-in;
             }
             details summary:focus { outline: none; }
             details summary::-webkit-details-marker { display: none; }
             details summary::marker { display: none; }
             details[open] summary {  color: var(--my-color-1); }
-            details[open] summary ~ * { animation: sweep .5s ease-in; }
+            details[open] summary ~ * { animation: sweep .6s ease-in; }
             @keyframes sweep { 0% {opacity: 0;} 100% {opacity: 1;} }
         </style>
     </head>
@@ -57,44 +60,154 @@
     <body>
 
         <header>
-            <details><summary>/Pseudolog</summary>
+            <details open><summary>/Pseudolog</summary>
                 <p>Blog personal de Carlos Luna Mota.</p>
             </details>
         </header>
         
+        <!--------------------------------------------------------------------->
+
         <article>
-            <details><summary>/math/bla</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <details><summary>/math/TheEgyptianTangram</summary>
+                <p></p>
             </details>
         </article>
 
         <article>
-            <details><summary>/programming/bla</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <details><summary>/math/BalancedTernary</summary>
+                <p></p>
+            </details>
+        </article>
+
+        <!--------------------------------------------------------------------->
+
+        <article>
+            <details><summary>/code/MedianSort</summary>
+                <blockquote><pre>/* Source: https://github.com/CarlosLunaMota/MedianSort */ 
+#define IMPORT_MEDIAN_SORT(type_t, less_than, power, prefix, suffix)            \
+                                                                                \
+    static void prefix##quick_select##suffix(type_t *A, const size_t length,    \
+                                             const size_t rank) {               \
+                                                                                \
+        size_t l, left  = 0;                                                    \
+        size_t r, right = length-1;                                             \
+        type_t t, pivot;                                                        \
+                                                                                \
+        while (left < right) {                                                  \
+            pivot = A[rank];                                                    \
+            l     = left;                                                       \
+            r     = right;                                                      \
+            do {while (less_than(A[l], pivot)) { ++l; }                         \
+                while (less_than(pivot, A[r])) { --r; }                         \
+                if (l <= r) { t=A[l]; A[l]=A[r]; A[r]=t; ++l; --r; }            \
+            } while (l <= r);                                                   \
+            if (r < rank) { left  = l; }                                        \
+            if (rank < l) { right = r; }                                        \
+        }                                                                       \
+    }                                                                           \
+                                                                                \
+    static void prefix##median_sort##suffix(type_t *A, const size_t length) {   \
+                                                                                \
+        const size_t MIN_SIZE = 1 << power;                                     \
+                                                                                \
+        size_t l, r, rank, step;                                                \
+        type_t t;                                                               \
+                                                                                \
+        /* MEDIAN SORT (down to 2^(power+1) intervals) */                       \
+        for (step   = 1; step <  length;   step <<= 1);                         \
+        for (step >>= 1; step >= MIN_SIZE; step >>= 1) {                        \
+            for (rank = step; rank < length; rank += (step << 1)) {             \
+                l = (rank-step);                                                \
+                r = (rank+step) > length ? length : (rank+step);                \
+                                                                                \
+                /* QUICK SELECT rank in the interval [l, r) */                  \
+                prefix##quick_select##suffix(A+l, r-l, step);                   \
+            }                                                                   \
+        }                                                                       \
+                                                                                \
+        /* INSERTION SORT (up to 2^(power+1) distances) */                      \
+        if (MIN_SIZE > 1) {                                                     \
+            for (r = 1; r < length; ++r) {                                      \
+                t = A[r];                                                       \
+                for (l=r; l && less_than(t, A[l-1]); --l) { A[l] = A[l-1]; }    \
+                A[l] = t;                                                       \
+            }                                                                   \
+        }                                                                       \
+    }                                                                           \
+                                                                                \</pre></blockquote>
+            </details>
+        </article>
+
+        <!--------------------------------------------------------------------->
+
+        <article>
+            <details><summary>/quotes/wabi-sabi</summary>
+                <blockquote><strong>Las cosas evolucionan hacia o desde la nada.</strong> Cuando el anochecer se acerca a los valles, el viajero se pregunta dónde buscar cobijo para pasar la noche. Ve altos juncos creciendo por todos lados, los junta en una brazada, erguidos tal y como se mantienen en el campo, y los ata por arriba. Presto, una choza de hierba viva. A la mañana siguiente, antes de embarcarse en una nueva jornada de viaje, desata los juncos y presto, la choza se deconstruye, desaparece y vuelve a convertirse en una parte prácticamente indiferenciale del amplio campo de juncos. El paisaje original parece restaurarse de nuevo, pero quedan trazas minúsculas del refugio. Algún junco doblado o entrelazado aquí y allá. Queda también la memoria de la choza en la mente del viajero, y en la mente del lector que lee la descripción. El Wabi-sabi, en su forma más pura e idealizada, se refiere precisamente a estas delicadas trazas, a esta evidencia evanescente, en las fronteras de la nada.</blockquote>
+                <p>From <strong>Wabi-Sabi para Artistas, Diseñadores, Poetas y Filósofos</strong> by <em>Leonard Koren</em>.</p>
+            </details>
+        </article>
+
+        <!--------------------------------------------------------------------->
+
+        <article>
+            <details><summary>/twelve/books</summary>
+                <ul>
+                    <li><strong>Cuentos completos</strong> by <em>Jorge Luís Borges</em></li>
+                    <li><strong>El caso Jane Eyre</strong> by <em>Jasper Fforde</em></li>
+                    <li><strong>Ciudad Permutación</strong> by <em>Greg Egan</em></li>
+                    <li><strong>La historia de tu vida</strong> by <em>Ted Chiang</em></li>
+                    <li><strong>Seveneves</strong> by <em>Neal Stephenson</em></li>
+                    <li><strong>Dune</strong> by <em>Frank Herbert</em></li>
+                    <li><strong>Measurement</strong> by <em>Paul Lockhart</em></li>
+                    <li><strong>Ideas sobre la complejidad del mundo</strong> by <em>Jorge Wagensberg</em></li> 
+                    <li><strong>Skin in the Game</strong> by <em>Nassim Nicholas Taleb</em></li>
+                    <li><strong>Los desposeídos</strong> by <em>Ursula K. Le Guin</em></li>
+                    <li><strong>El gen egoísta</strong> by <em>Richard Dawkins</em></li>
+                    <li><strong>The Art of Computer Programming</strong> by <em>Donald E. Knuth</em></li>
+                </ul>
             </details>
         </article>
 
         <article>
-            <details><summary>/programming/ble</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </details>
-        </article>
-        
-        <article>
-            <details><summary>/programming/bli</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <details><summary>/twelve/songs</summary>
+                <ul>
+                    <li><strong>Si els fills de puta volessin no veuriem mai el Sol</strong> by <em>Quico Pi de la Serra</em></li>
+                    <li><strong>La meva terra és el mar</strong> by <em>Lax'n'Busto</em></li> 
+                    <li><strong>Lluvia En Soledad</strong> by <em>Celtas Cortos</em></li>
+                    <li><strong>Sisters of Merci</strong> by <em>Dover</em></li>
+                    <li><strong>Corner Of The Earth</strong> by <em>Jamiroquai</em></li>
+                    <li><strong>I can't be with you</strong> by <em>The Cranberries</em></li>
+                    <li><strong>The Seeker</strong> by <em>The Who</em></li>
+                    <li><strong>Sunday Bloody Sunday</strong> by <em>U2</em></li>
+                    <li><strong>Starman</strong> by <em>David Bowie</em></li>
+                    <li><strong>Jolene</strong> by <em>Dolly Parton</em></li>
+                    <li><strong>Train Song</strong> by <em>Vashti Bunyan</em></li>
+                    <li><strong>Danse de l'ours</strong> traditional occitaine</li>
+                </ul>
             </details>
         </article>
 
         <article>
-            <details><summary>/misc/blu</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <details><summary>/twelve/games</summary>
+                <ul>
+                    <li><strong>Xodd</strong> by <em>Luis Bolaños Mures</em></li>
+                    <li><strong>Connect6</strong> by <em> Professor I-Chen Wu</em></li> 
+                    <li><strong>Trike</strong> by <em>Alek Erickson</em></li>
+                    <li><strong>Breakthrough</strong> by <em>Dan Troyka</em></li>
+                    <li><strong>Murus Gallicus</strong> by <em>Phil Leduc</em></li>
+                    <li><strong>Carcassonne</strong> by <em> Klaus-Jürgen Wrede</em></li>
+                    <li><strong>Jewels in the Sand</strong> by <em>Stanley Anderson</em></li>
+                    <li><strong>Vault</strong> by <em>Néstor Romeral Andrés</em></li>
+                    <li><strong>Othello</strong> by <em>Lewis Waterman/John W. Mollett</em></li>
+                    <li><strong>Backgammon</strong> traditional</li>
+                    <li><strong>Lines of Action</strong> by <em>Claude Soucie</em></li>
+                    <li><strong>Kulami</strong> by <em>Andreas Kuhnekath</em></li>
+                </ul>
             </details>
         </article>
+
+
+        <!--------------------------------------------------------------------->
 
         <footer>
             <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:16px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:16px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <a href="https://carloslunamota.github.io/">Carlos Luna-Mota</a></p>
