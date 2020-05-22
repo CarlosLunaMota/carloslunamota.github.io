@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://carloslunamota.github.io/" />
         <link rel="icon" href="img/favicon.ico" sizes="32x32" />
 
-        <title>/Pseudolog</title>
+        <title>Pseudolog</title>
 
         <style>
             :root {
@@ -17,16 +17,24 @@
               --my-color-1: #FEE715; /*#EED202;*/ /*#FFD800;*/ /*#E9B000;*/
               --my-color-2: #5f5800; /*#423800;*/ /*#B8860B;*/
               --my-padding: 25px;
+              --my-width:   calc(800px + var(--my-padding) + var(--my-padding));
             }
             * { font-family:      sans-serif;
                 background-color: var(--my-white);
                 color:            var(--my-black);
             }
-            body { width:     66%;
-                   margin:    auto;
-                   font-size: 110%;
+            body { width:       var(--my-width);
+                   margin:      auto;
+                   font-size:   110%;
                    line-height: 1.75;
             }
+            @media only screen and (max-width: var(--my-width)) {
+                body { width:       100%;
+                       margin:      0px;
+                       font-size:   90%;
+                       line-height: 1.5;
+                }
+            }                
             a { text-decoration:none; }
             a:hover { color: var(--my-color-2); }
             blockquote { border-left: 3px solid var(--my-black);
