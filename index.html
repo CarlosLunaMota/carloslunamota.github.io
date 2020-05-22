@@ -12,45 +12,51 @@
 
         <style>
             :root {
-              --my-white:   #f4f4f4;
-              --my-black:   #101820; /*#373737;*/
-              --my-color-1: #FEE715; /*#EED202;*/ /*#FFD800;*/ /*#E9B000;*/
-              --my-color-2: #5f5800; /*#423800;*/ /*#B8860B;*/
-              --my-padding: 25px;
-              --my-width:   calc(800px + var(--my-padding) + var(--my-padding));
+              --white:       #f4f4f4;
+              --black:       #101820; /*#373737;*/
+              --color-light: #FEE715; /*#EED202;*/ /*#FFD800;*/ /*#E9B000;*/
+              --color-dark:  #5f5800; /*#423800;*/ /*#B8860B;*/
+              --thickness:   3px; 
+              --padding:     25px;
+              --width:       calc(800px + var(--padding) + var(--padding));
             }
             * { font-family:      sans-serif;
-                background-color: var(--my-white);
-                color:            var(--my-black);
+                background-color: var(--white);
+                color:            var(--black);
             }
-            body { width:       var(--my-width);
+            body { width:       var(--width);
                    margin:      auto;
                    font-size:   110%;
                    line-height: 1.75;
             }
-            @media only screen and (max-width: var(--my-width)) {
+            @media only screen and (max-width: var(--width)) {
                 body { width:       100%;
                        margin:      0px;
                        font-size:   90%;
                        line-height: 1.5;
                 }
             }                
+            hr { height:           var(--thickness);
+                 border-width:     0px;
+                 margin:           var(--padding);
+                 background-color: var(--black);
+            }
             a { text-decoration:none; }
-            a:hover { color: var(--my-color-2); }
-            blockquote { border-left: 3px solid var(--my-black);
-                         padding-left: var(--my-padding); }
+            a:hover { color: var(--color-dark); }
+            blockquote { border-left: var(--thickness) solid var(--black);
+                         padding-left: var(--padding); }
             pre { font-family: monospace; display: block; }
-            h1, h2, h3, h4, p { padding: 0px var(--my-padding); }
+            h1, h2, h3, h4, p { padding: 0px var(--padding); }
             article { clear:both; }
             header details summary { font-size: 200%; }
-            header { margin: var(--my-padding) 0px; }
-            footer { margin: var(--my-padding) 0px;
-                     border-top: 3px solid var(--my-black); }
-            details summary { padding:          5px var(--my-padding);
+            header { margin: var(--padding) 0px; }
+            footer { margin: var(--padding) 0px;
+                     border-top: var(--thickness) solid var(--black); }
+            details summary { padding:          5px var(--padding);
                               font-size:        150%;
                               font-family:      monospace;
-                              background-color: var(--my-black);
-                              color:            var(--my-white);
+                              background-color: var(--black);
+                              color:            var(--white);
                               cursor:           pointer;
                               transition:       color .6s ease;
                               list-style-type:  none;
@@ -59,7 +65,7 @@
             details summary:focus { outline: none; }
             details summary::-webkit-details-marker { display: none; }
             details summary::marker { display: none; }
-            details[open] summary {  color: var(--my-color-1); }
+            details[open] summary {  color: var(--color-light); }
             details[open] summary ~ * { animation: sweep .6s ease-in; }
             @keyframes sweep { 0% {opacity: 0;} 100% {opacity: 1;} }
         </style>
