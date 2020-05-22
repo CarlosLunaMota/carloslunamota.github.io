@@ -18,19 +18,18 @@
               --color-dark:  #5f5800; /*#423800;*/ /*#B8860B;*/
               --thickness:   3px; 
               --padding:     25px;
-              --width:       calc(800px + var(--padding) + var(--padding));
             }
             * { font-family:      sans-serif;
                 background-color: var(--white);
                 color:            var(--black);
             }
-            body { width:       var(--width);
+            body { width:       850px;
                    margin:      auto;
                    font-size:   110%;
                    line-height: 1.75;
             }
-            @media only screen and (max-width: var(--width)) {
-                body { width:       100%;
+            @media only screen and (max-width: 850px) {
+                body { width:       100%!important;;
                        margin:      0px;
                        font-size:   90%;
                        line-height: 1.5;
@@ -42,7 +41,7 @@
                  background-color: var(--black);
             }
             a { text-decoration:none; }
-            a:hover { color: var(--color-dark); }
+            a:hover { color: var(--color-dark)!important; }
             blockquote { border-left: var(--thickness) solid var(--black);
                          padding-left: var(--padding); }
             pre { font-family: monospace; display: block; }
@@ -88,6 +87,7 @@
                 <p></p>
             </details>
         </article>
+
 
         <article>
             <details><summary>/math/GeometryCheatSheet</summary>
