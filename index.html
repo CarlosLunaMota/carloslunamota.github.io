@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#121d2c" />
+        <meta name="theme-color" content="#101820" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://carloslunamota.github.io/" />
         <link rel="icon" href="img/favicon.ico" sizes="32x32" />
 
-        <title>Pseudolog</title>
+        <title>/Pseudolog</title>
 
         <style>
             :root {
@@ -27,11 +27,13 @@
                    font-size: 110%;
                    line-height: 1.75;
             }
-            a { text-decoration:none; color: var(--my-color-2); }
+            a { text-decoration:none; }
+            a:hover { color: var(--my-color-2); }
             blockquote { border-left: 3px solid var(--my-black);
                          padding-left: var(--my-padding); }
             pre { font-family: monospace; display: block; }
-            p { padding: 0px var(--my-padding);    }
+            h1, h2, h3, h4, p { padding: 0px var(--my-padding); }
+            article { clear:both; }
             header details summary { font-size: 200%; }
             header { margin: var(--my-padding) 0px; }
             footer { margin: var(--my-padding) 0px;
@@ -44,7 +46,7 @@
                               cursor:           pointer;
                               transition:       color .6s ease;
                               list-style-type:  none;
-                              animation: sweep .3s ease-in;
+                              animation:        sweep .3s ease-in;
             }
             details summary:focus { outline: none; }
             details summary::-webkit-details-marker { display: none; }
@@ -61,7 +63,7 @@
 
         <header>
             <details open><summary>/Pseudolog</summary>
-                <p>Blog personal de Carlos Luna Mota.</p>
+                <p>A collection of open source projects and ideas.</p>
             </details>
         </header>
         
@@ -74,7 +76,7 @@
         </article>
 
         <article>
-            <details><summary>/math/BalancedTernary</summary>
+            <details><summary>/math/GeometryCheatSheet</summary>
                 <p></p>
             </details>
         </article>
@@ -82,75 +84,58 @@
         <!--------------------------------------------------------------------->
 
         <article>
+            <details><summary>/code/CLM_LIBS</summary>
+                <p></p>
+            </details>
+        </article>
+
+        <article>
             <details><summary>/code/MedianSort</summary>
-                <blockquote><pre>/* Source: https://github.com/CarlosLunaMota/MedianSort */ 
-#define IMPORT_MEDIAN_SORT(type_t, less_than, power, prefix, suffix)            \
-                                                                                \
-    static void prefix##quick_select##suffix(type_t *A, const size_t length,    \
-                                             const size_t rank) {               \
-                                                                                \
-        size_t l, left  = 0;                                                    \
-        size_t r, right = length-1;                                             \
-        type_t t, pivot;                                                        \
-                                                                                \
-        while (left < right) {                                                  \
-            pivot = A[rank];                                                    \
-            l     = left;                                                       \
-            r     = right;                                                      \
-            do {while (less_than(A[l], pivot)) { ++l; }                         \
-                while (less_than(pivot, A[r])) { --r; }                         \
-                if (l <= r) { t=A[l]; A[l]=A[r]; A[r]=t; ++l; --r; }            \
-            } while (l <= r);                                                   \
-            if (r < rank) { left  = l; }                                        \
-            if (rank < l) { right = r; }                                        \
-        }                                                                       \
-    }                                                                           \
-                                                                                \
-    static void prefix##median_sort##suffix(type_t *A, const size_t length) {   \
-                                                                                \
-        const size_t MIN_SIZE = 1 << power;                                     \
-                                                                                \
-        size_t l, r, rank, step;                                                \
-        type_t t;                                                               \
-                                                                                \
-        /* MEDIAN SORT (down to 2^(power+1) intervals) */                       \
-        for (step   = 1; step <  length;   step <<= 1);                         \
-        for (step >>= 1; step >= MIN_SIZE; step >>= 1) {                        \
-            for (rank = step; rank < length; rank += (step << 1)) {             \
-                l = (rank-step);                                                \
-                r = (rank+step) > length ? length : (rank+step);                \
-                                                                                \
-                /* QUICK SELECT rank in the interval [l, r) */                  \
-                prefix##quick_select##suffix(A+l, r-l, step);                   \
-            }                                                                   \
-        }                                                                       \
-                                                                                \
-        /* INSERTION SORT (up to 2^(power+1) distances) */                      \
-        if (MIN_SIZE > 1) {                                                     \
-            for (r = 1; r < length; ++r) {                                      \
-                t = A[r];                                                       \
-                for (l=r; l && less_than(t, A[l-1]); --l) { A[l] = A[l-1]; }    \
-                A[l] = t;                                                       \
-            }                                                                   \
-        }                                                                       \
-    }                                                                           \
-                                                                                \</pre></blockquote>
+                <p>An obscure variant of QuickSort called <strong><a href="https://github.com/CarlosLunaMota/MedianSort">MedianSort</a></strong>.</p>
+                <blockquote><pre>void median_sort(type_t *A, const size_t length) {
+    size_t left, right, rank, step;
+    for (step   = 1; step <  length; step <<= 1);
+    for (step >>= 1; step >= 1;      step >>= 1) {
+        for (rank = step; rank < length; rank += (step << 1)) {
+            left  = (rank-step);
+            right = (rank+step) > length ? length : (rank+step);
+            quick_select(A+left, right-left, step);
+        }
+    }
+}</pre></blockquote>
+            </details>
+        </article>
+
+        <article>
+            <details><summary>/code/PseudoSorting</summary>
+                <p></p>
             </details>
         </article>
 
         <!--------------------------------------------------------------------->
 
         <article>
-            <details><summary>/quotes/wabi-sabi</summary>
+            <details><summary>/games/TriangularDeck</summary>
+                <p></p>
+            </details>
+        </article>
+
+        <!--------------------------------------------------------------------->
+
+        <article>
+            <details><summary>/notable/quotes</summary>
                 <blockquote><strong>Las cosas evolucionan hacia o desde la nada.</strong> Cuando el anochecer se acerca a los valles, el viajero se pregunta dónde buscar cobijo para pasar la noche. Ve altos juncos creciendo por todos lados, los junta en una brazada, erguidos tal y como se mantienen en el campo, y los ata por arriba. Presto, una choza de hierba viva. A la mañana siguiente, antes de embarcarse en una nueva jornada de viaje, desata los juncos y presto, la choza se deconstruye, desaparece y vuelve a convertirse en una parte prácticamente indiferenciale del amplio campo de juncos. El paisaje original parece restaurarse de nuevo, pero quedan trazas minúsculas del refugio. Algún junco doblado o entrelazado aquí y allá. Queda también la memoria de la choza en la mente del viajero, y en la mente del lector que lee la descripción. El Wabi-sabi, en su forma más pura e idealizada, se refiere precisamente a estas delicadas trazas, a esta evidencia evanescente, en las fronteras de la nada.</blockquote>
                 <p>From <strong>Wabi-Sabi para Artistas, Diseñadores, Poetas y Filósofos</strong> by <em>Leonard Koren</em>.</p>
+
+                <hr>
+
+                <blockquote>I have been intending to write this essay for months. Why am I finally doing it? Because I finally found some uncommitted time? Wrong. I have papers to grade, textbook orders to fill out, an NSF proposal to referee, dissertation drafts to read. I am working on this essay as a way of not doing all of those things. This is the essence of what I call structured procrastination, an amazing strategy I have discovered that converts procrastinators into effective human beings, respected and admired for all that they can accomplish and the good use they make of time. All procrastinators put off things they have to do. Structured procrastination is the art of making this bad trait work for you. The key idea is that procrastinating does not mean doing absolutely nothing. Procrastinators seldom do absolutely nothing; they do marginally useful things, like gardening or sharpening pencils or making a diagram of how they will reorganize their files when they get around to it. Why does the procrastinator do these things? Because they are a way of not doing something more important. If all the procrastinator had left to do was to sharpen some pencils, no force on earth could get him do it. However, the procrastinator can be motivated to do difficult, timely and important tasks, as long as these tasks are a way of not doing something more important.</blockquote>
+                <p>From <strong><a href="http://www.structuredprocrastination.com/">Structured Procrastination</a></strong> by <em>John Perry</em></p>
             </details>
         </article>
 
-        <!--------------------------------------------------------------------->
-
         <article>
-            <details><summary>/twelve/books</summary>
+            <details><summary>/notable/books</summary>
                 <ul>
                     <li><strong>Cuentos completos</strong> by <em>Jorge Luís Borges</em></li>
                     <li><strong>El caso Jane Eyre</strong> by <em>Jasper Fforde</em></li>
@@ -169,26 +154,7 @@
         </article>
 
         <article>
-            <details><summary>/twelve/songs</summary>
-                <ul>
-                    <li><strong>Si els fills de puta volessin no veuriem mai el Sol</strong> by <em>Quico Pi de la Serra</em></li>
-                    <li><strong>La meva terra és el mar</strong> by <em>Lax'n'Busto</em></li> 
-                    <li><strong>Lluvia En Soledad</strong> by <em>Celtas Cortos</em></li>
-                    <li><strong>Sisters of Merci</strong> by <em>Dover</em></li>
-                    <li><strong>Corner Of The Earth</strong> by <em>Jamiroquai</em></li>
-                    <li><strong>I can't be with you</strong> by <em>The Cranberries</em></li>
-                    <li><strong>The Seeker</strong> by <em>The Who</em></li>
-                    <li><strong>Sunday Bloody Sunday</strong> by <em>U2</em></li>
-                    <li><strong>Starman</strong> by <em>David Bowie</em></li>
-                    <li><strong>Jolene</strong> by <em>Dolly Parton</em></li>
-                    <li><strong>Train Song</strong> by <em>Vashti Bunyan</em></li>
-                    <li><strong>Danse de l'ours</strong> traditional occitaine</li>
-                </ul>
-            </details>
-        </article>
-
-        <article>
-            <details><summary>/twelve/games</summary>
+            <details><summary>/notable/games</summary>
                 <ul>
                     <li><strong>Xodd</strong> by <em>Luis Bolaños Mures</em></li>
                     <li><strong>Connect6</strong> by <em> Professor I-Chen Wu</em></li> 
