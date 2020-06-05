@@ -1,0 +1,76 @@
+
+/* PARAMETERS: */
+:root { --white:       #f4f4f4;
+        --grey:        #d9e0e0;
+        --black:       #101820;
+        --color-light: #FEE715;
+        --color-dark:  #5f5800;
+        --thickness:   3px; 
+        --padding:     25px;
+}
+
+
+* { font-family:      sans-serif;
+    color:            var(--black);
+}
+
+html { background-color: var(--white); }
+
+body { max-width:   750px;
+       margin:      0px auto;
+       line-height: 1.75;
+}
+
+hr { height:           var(--thickness);
+     border-width:     0px;
+     margin:           var(--padding);
+     background-color: var(--black);
+}
+
+a { text-decoration:none; 
+    color:            var(--black);
+}
+a:hover { color: var(--color-dark); }
+
+blockquote { border-left: var(--thickness) solid var(--black);
+             padding: var(--thickness) var(--padding);
+             background-color: var(--grey);
+}
+
+pre { font-family:      consolas, monospace;
+      display:          inline-block;
+      font-size:        90%;
+      margin:           0px;
+}
+
+.center { display: block; margin-left: auto; margin-right: auto; }
+
+code { font-family: consolas, monospace; }
+
+h1, h2, h3, h4, p { padding: 0px var(--padding); }
+
+article { clear:both; }
+
+header details summary { font-size: 220%; }
+
+header { margin: var(--padding) 0px; }
+
+footer { margin: var(--padding) 0px;
+         border-top: var(--thickness) solid var(--black); }
+
+@keyframes sweep { 0% {opacity: 0;} 100% {opacity: 1;} }
+details summary { padding:          5px var(--padding);
+                  font-size:        165%;
+                  font-family:      monospace;
+                  background-color: var(--black);
+                  color:            var(--white);
+                  cursor:           pointer;
+                  list-style-type:  none;
+                  transition:       color .6s ease;
+                  animation:        sweep .3s ease-in;
+}
+details summary:focus { outline: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { display: none; }
+details[open] summary     { color: var(--color-light); }
+details[open] summary ~ * { animation: sweep .6s ease-in; }
