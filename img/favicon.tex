@@ -1,0 +1,20 @@
+\documentclass{standalone}
+
+    \usepackage{microtype}
+    \usepackage[euler]{textgreek}
+    
+    \newsavebox{\foobox}
+    \newcommand{\slantbox}[2][.15]
+      {%
+        \mbox
+          {%
+            \sbox{\foobox}{#2}%
+            \hskip\wd\foobox
+            \pdfsave
+            \pdfsetmatrix{1 0 #1 1}%
+            \llap{\usebox{\foobox}}%
+            \pdfrestore
+          }%
+      }
+
+\begin{document}\slantbox{\textpsi}\end{document}

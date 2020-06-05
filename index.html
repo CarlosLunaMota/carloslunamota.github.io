@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<base href="https://carloslunamota.github.io/">-->
         <meta name="theme-color" content="#101820" />
-        <meta name="robots" content="index, follow" />
+        <meta name="description" content="Carlos Luna-Mota personal page">
+        <meta name="robots" content="index,follow" />
+        <meta name="rating" content="General">
+        <meta name="format-detection" content="telephone=no">
         <link rel="canonical" href="https://carloslunamota.github.io/" />
-        <link rel="icon" href="img/favicon.ico" sizes="32x32" />
+        <link rel="index" href="https://carloslunamota.github.io/">
+        <link rel="license" href="https://creativecommons.org/licenses/by/4.0" />
+        <link rel="icon" href="img/favicon.ico" sizes="16x16 32x32" />
+        <link rel="icon" href="img/favicon.png" sizes="192x192" />
 
         <title>Pseudolog</title>
 
         <style>
             :root {
               --white:       #f4f4f4;
+              --grey:        #d9e0e0;
               --black:       #101820; /*#373737;*/
               --color-light: #FEE715; /*#EED202;*/ /*#FFD800;*/ /*#E9B000;*/
               --color-dark:  #5f5800; /*#423800;*/ /*#B8860B;*/
@@ -20,39 +29,42 @@
               --padding:     25px;
             }
             * { font-family:      sans-serif;
-                background-color: var(--white);
-                color:            var(--black);
-            }
-            body { width:       850px;
-                   margin:      auto;
-                   font-size:   110%;
+                color:            var(--black); }
+            html { background-color: var(--white); }
+            body { max-width:   750px;
+                   margin:      0px auto;
                    line-height: 1.75;
             }
-            @media only screen and (max-width: 850px) {
-                body { width:       100%!important;;
-                       margin:      0px;
-                       font-size:   90%;
-                       line-height: 1.5;
-                }
-            }                
             hr { height:           var(--thickness);
                  border-width:     0px;
                  margin:           var(--padding);
                  background-color: var(--black);
             }
-            a { text-decoration:none; }
+            a { text-decoration:none; 
+                color:            var(--black);}
             a:hover { color: var(--color-dark)!important; }
             blockquote { border-left: var(--thickness) solid var(--black);
-                         padding-left: var(--padding); }
-            pre { font-family: monospace; display: block; }
+                         padding: var(--thickness) var(--padding);
+                         background-color: var(--grey); }
+            pre { font-family:      consolas, monospace;
+                  display:          inline-block;
+                  font-size:        90%;
+                  margin:           0px;
+            }
+            .center {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            code { font-family: consolas, monospace; }
             h1, h2, h3, h4, p { padding: 0px var(--padding); }
             article { clear:both; }
-            header details summary { font-size: 200%; }
+            header details summary { font-size: 220%; }
             header { margin: var(--padding) 0px; }
             footer { margin: var(--padding) 0px;
                      border-top: var(--thickness) solid var(--black); }
             details summary { padding:          5px var(--padding);
-                              font-size:        150%;
+                              font-size:        165%;
                               font-family:      monospace;
                               background-color: var(--black);
                               color:            var(--white);
@@ -76,22 +88,22 @@
 
         <header>
             <details open><summary>/Pseudolog</summary>
-                <p>A collection of open source projects and ideas.</p>
+                <p>My personal collection of open source projects and ideas.</p>
             </details>
         </header>
         
         <!--------------------------------------------------------------------->
 
         <article>
-            <details><summary>/math/TheEgyptianTangram</summary>
-                <p></p>
+            <details><summary>/math/EgyptianTangram</summary>
+                 <p><img src="img/WorkInProgress.png" width="50%" class="center" /></p>
             </details>
         </article>
 
 
         <article>
             <details><summary>/math/GeometryCheatSheet</summary>
-                <p></p>
+                 <p><img src="img/WorkInProgress.png" width="50%" class="center" /></p>
             </details>
         </article>
 
@@ -99,20 +111,109 @@
 
         <article>
             <details><summary>/code/CLM_LIBS</summary>
-                <p></p>
+                <p><code>CLM_LIBS.h</code> is set of public domain C libraries implemented as code-generating macros.</p>
+                <p>You can find the <code>CLM_LIBS.h</code> file and all the documentation in the <strong><a href="https://github.com/CarlosLunaMota/CLM_LIBS">CLM_LIBS</a></strong> repository.</p>
+                <p><strong>IMPORT_CLM_TIME:</strong> time and date related functions</p>
+                <blockquote>
+                    <pre>double  </pre><strong><pre>time_elapsed</pre></strong><pre>(clock_t crono)</pre></br>
+                    <pre>void    </pre><strong><pre>time_pause</pre></strong><pre>(char* message)</pre></br>
+                    <pre>char   *</pre><strong><pre>time_stamp</pre></strong><pre>(int format)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_RAND:</strong> random related functions</p>
+                <blockquote>
+                    <pre>int     </pre><strong><pre>rand_int</pre></strong><pre>(int n)</pre></br>
+                    <pre>size_t  </pre><strong><pre>rand_size_t</pre></strong><pre>(size_t n)</pre></br>
+                    <pre>double  </pre><strong><pre>rand_double</pre></strong><pre>(double n)</pre></br>
+                    <pre>double  </pre><strong><pre>rand_halton</pre></strong><pre>(size_t base, size_t n)</pre></br>
+                    <pre>void    </pre><strong><pre>rand_color</pre></strong><pre>(int *r, int *g, int *b)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_PRINTF:</strong> <code>printf</code> helper functions</p>
+                <blockquote>
+                    <pre>void    </pre><strong><pre>printf_reset</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_bold</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_light</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_strike</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_underline</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_text_grey</pre></strong><pre>(int grey)</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_back_grey</pre></strong><pre>(int grey)</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_text_color</pre></strong><pre>(int r, int g, int b)</pre></br>
+                    <pre>void    </pre><strong><pre>printf_set_back_color</pre></strong><pre>(int r, int g, int b)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_ARC4:</strong> unsafe cryptographic functions</p>
+                <blockquote>
+                    <pre>char   *</pre><strong><pre>arc4_hash</pre></strong><pre>(char *txt, size_t length, size_t drop)</pre></br>
+                    <pre>char   *</pre><strong><pre>arc4_encrypt</pre></strong><pre>(char *txt, char *key, size_t drop)</pre></br>
+                    <pre>char   *</pre><strong><pre>arc4_decrypt</pre></strong><pre>(char *txt, char *key, size_t drop)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_ITER:</strong> combinatorial iterator functions</p>
+                <blockquote>
+                    <pre>void    </pre><strong><pre>iter_rand_prod</pre></strong><pre>(size_t **prod, size_t length, size_t *base)</pre></br>
+                    <pre>void    </pre><strong><pre>iter_next_prod</pre></strong><pre>(size_t **prod, size_t length, size_t *base)</pre></br>
+                    <pre>void    </pre><strong><pre>iter_rand_perm</pre></strong><pre>(size_t **perm, size_t length, size_t base, bool rep)</pre></br>
+                    <pre>void    </pre><strong><pre>iter_next_perm</pre></strong><pre>(size_t **perm, size_t length, size_t base, bool rep)</pre></br>
+                    <pre>void    </pre><strong><pre>iter_rand_comb</pre></strong><pre>(size_t **comb, size_t length, size_t base, bool rep)</pre></br>
+                    <pre>void    </pre><strong><pre>iter_next_comb</pre></strong><pre>(size_t **comb, size_t length, size_t base, bool rep)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_FRACTAL:</strong> spacefilling curves</p>
+                <blockquote>
+                    <pre>size_t  </pre><strong><pre>fractal_van_der_corput</pre></strong><pre>(size_t base, size_t digits, size_t n)</pre></br>
+                    <pre>void    </pre><strong><pre>fractal_lebesgue_coord</pre></strong><pre>(size_t dim, size_t bits, size_t *L)</pre></br>
+                    <pre>void    </pre><strong><pre>fractal_lebesgue_index</pre></strong><pre>(size_t dim, size_t bits, size_t *L)</pre></br>
+                    <pre>void    </pre><strong><pre>fractal_hilbert_coord</pre></strong><pre>(size_t dim, size_t bits, size_t *H)</pre></br>
+                    <pre>void    </pre><strong><pre>fractal_hilbert_index</pre></strong><pre>(size_t dim, size_t bits, size_t *H)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_ARRAY:</strong> generic array functions</p>
+                <blockquote>
+                    <pre>typedef type *</pre><strong><pre>array</pre></strong></br>
+                    <pre>array   </pre><strong><pre>array_new</pre></strong><pre>(size_t length)</pre></br>
+                    <pre>void    </pre><strong><pre>array_sort</pre></strong><pre>(array A, size_t length)</pre></br>
+                    <pre>void    </pre><strong><pre>array_shuffle</pre></strong><pre>(array A, size_t length)</pre></br>
+                    <pre>type    </pre><strong><pre>array_select</pre></strong><pre>(array A, size_t length, size_t rank)</pre></br>
+                    <pre>size_t  </pre><strong><pre>array_bisect</pre></strong><pre>(array A, size_t length, type data)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_CLIST:</strong> generic singly-linked circular list container</p>
+                <blockquote>
+                    <pre>typedef struct clist_s *</pre><strong><pre>clist</pre></strong></br>
+                    <pre>bool    </pre><strong><pre>clist_push_front</pre></strong><pre>(clist *list, type data)</pre></br>
+                    <pre>bool    </pre><strong><pre>clist_push_back</pre></strong><pre>(clist *list, type data)</pre></br>
+                    <pre>type    </pre><strong><pre>clist_pop_front</pre></strong><pre>(clist *list)</pre></br>
+                    <pre>type    </pre><strong><pre>clist_front</pre></strong><pre>(clist *list)</pre></br>
+                    <pre>type    </pre><strong><pre>clist_back</pre></strong><pre>(clist *list)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_STREE:</strong> generic splay tree container</p>
+                <blockquote>
+                    <pre>typedef struct stree_s *</pre><strong><pre>stree</pre></strong></br>
+                    <pre>type    </pre><strong><pre>stree_root</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>type    </pre><strong><pre>stree_min</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>type    </pre><strong><pre>stree_max</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>type    </pre><strong><pre>stree_pop</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>bool    </pre><strong><pre>stree_next</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>bool    </pre><strong><pre>stree_prev</pre></strong><pre>(stree *tree)</pre></br>
+                    <pre>bool    </pre><strong><pre>stree_find</pre></strong><pre>(stree *tree, type data)</pre></br>
+                    <pre>bool    </pre><strong><pre>stree_insert</pre></strong><pre>(stree *tree, type data)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_WTREE:</strong> generic weight-balanced tree container</p>
+                <blockquote>
+                    <pre>typedef struct wtree_s *</pre><strong><pre>wtree</pre></strong></br>
+                    <pre>size_t  </pre><strong><pre>wtree_size</pre></strong><pre>(wtree *tree)</pre></br>
+                    <pre>size_t  </pre><strong><pre>wtree_find</pre></strong><pre>(wtree *tree, type data)</pre></br>
+                    <pre>size_t  </pre><strong><pre>wtree_insert</pre></strong><pre>(wtree *tree, type data)</pre></br>
+                    <pre>type    </pre><strong><pre>wtree_select</pre></strong><pre>(wtree *tree, size_t rank)</pre></br>
+                    <pre>type    </pre><strong><pre>wtree_remove</pre></strong><pre>(wtree *tree, size_t rank)</pre></br>
+                </blockquote>             
             </details>
         </article>
 
         <article>
             <details><summary>/code/MedianSort</summary>
-                <p>An obscure variant of QuickSort called <strong><a href="https://github.com/CarlosLunaMota/MedianSort">MedianSort</a></strong>.</p>
+                <p>An iterative constant-space variant of QuickSort called <strong><a href="https://github.com/CarlosLunaMota/MedianSort">MedianSort</a></strong>.</p>
                 <blockquote><pre>void median_sort(type_t *A, const size_t length) {
     size_t left, right, rank, step;
-    for (step   = 1; step <  length; step <<= 1);
-    for (step >>= 1; step >= 1;      step >>= 1) {
-        for (rank = step; rank < length; rank += (step << 1)) {
+    for (step   = 1; step &lt;  length; step &lt;&lt;= 1);
+    for (step &gt;&gt;= 1; step >= 1;      step >>= 1) {
+        for (rank = step; rank &lt; length; rank += (step &lt;&lt; 1)) {
             left  = (rank-step);
-            right = (rank+step) > length ? length : (rank+step);
+            right = (rank+step) &gt; length ? length : (rank+step);
             quick_select(A+left, right-left, step);
         }
     }
@@ -122,22 +223,86 @@
 
         <article>
             <details><summary>/code/PseudoSorting</summary>
-                <p></p>
+                <p>A <strong>pseudosorting algorithm</strong> takes a sequence and returns a permutation of that sequence that is more sorted than the previous one. The precise definition of more sorted it is not important as long as we guarantee that:</p>
+                <ol>
+                    <li>Repeated independent aplications of the same pseudosorting algorithm will eventually sort any sequence.</li>
+                    <li>Applying a pseudosorting algorithm to a sorted sequence leaves it sorted.</li>
+                </ol>
+                <p>All sorting algorithms are pseudosorting algorithms by definition, but the only pseudosorting algorithms that are of any interest are the ones that perform in <code>O(N)</code> time, so they can be applied while performing other <code>O(n)</code> tasks over the sequence (such as looking for an element or copying it to another location).</p>
+                <p>A single pass of Bubble Sort is a simple pseudosorting algorithm that could be used to improve the sortedness of an array every time we need to scan it for whatever the reason:</p>
+                <blockquote><pre>void BubblePseudoSort(int *array, size_t length) {
+    for (size_t i = 1; i &lt; length; i++) {
+        if (array[i-1] &gt; array[i]) {
+            int aux    = array[i-1];
+            array[i-1] = array[i];
+            array[i]   = aux;
+        }
+    }
+}</pre></blockquote>
+                <p>An <strong>optimal pseudosorting algorithm</strong> is a pseudosorting algorithm such that if we apply it to the same sequence iteratively is guaranteed to sort it in <code>O(N*log(N))</code> total time.</p>
+                <p>A single pass of Natural Merge Sort is an optimal pseudosorting algorithm that we can use to improve the sortedness of an array each time we need to copy it for whatever the reason:</p>
+                <blockquote><pre>void NaturalMergePseudoSort(int *array, size_t length) {
+
+    size_t x,   y,   z   = 0;                   // Index variables: indices
+    size_t ini, mid, end = 0;                   // Index variables: limits
+    size_t size = sizeof(int);                  // Size of content type
+    int   *aux = (int *) malloc(length*size);   // Same type of array content
+
+    // Make a single pass over the data merging pairs of adjacent runs:
+    while (end &lt; length) {
+
+        // Find new ini:
+        ini = end;
+
+        // Find new mid:
+        for (mid = ini+1; mid &lt; length &amp;&amp; array[mid-1] &lt;= array[mid]; mid++);
+
+        // If we have reached the end of the array we can exit now:
+        if (mid == length) { break; }
+
+        // Find new end:
+        for (end = mid+1; end &lt; length &amp;&amp; array[end-1] &lt;= array[end]; end++);
+
+        // Merge array[ini, mid) with array[mid, end) into aux[z, z+end-ini):
+        x = ini;
+        y = mid;
+        while (x &lt; mid &amp;&amp; y &lt; end) {
+            if (array[x] &lt;= array[y]) { aux[z++] = array[x++]; }
+            else                      { aux[z++] = array[y++]; }
+        }
+        if (x &lt; mid) { memcpy(&amp;aux[z], &amp;array[x], (mid-x)*size); z += mid-x; }
+        if (y &lt; end) { memcpy(&amp;aux[z], &amp;array[y], (end-y)*size); z += end-y; }
+    }
+
+    // Copy aux[0, end) back into array:
+    memcpy(array, aux, end*size);
+
+    // De-allocate aux:
+    free(aux);
+}</pre></blockquote>
+            <p>Since <code>NaturalMergePseudoSort</code> requires <code>O(N)</code> additional space, the existence of an <strong>optimal in-place pseudosorting algorithm</strong>  is still an open question.</p>
+            <p>You can find more information about pseudosorting algorithms and some examples in the <strong><a href="https://github.com/CarlosLunaMota/PseudoSort/blob/master/main.c">PseudoSort</a></strong> repository.</p>
             </details>
         </article>
 
         <!--------------------------------------------------------------------->
 
         <article>
-            <details><summary>/games/TriangularDeck</summary>
-                <p></p>
+            <details><summary>/game/T3CS</summary>
+                 <p><img src="img/WorkInProgress.png" width="50%" class="center" /></p>
+            </details>
+        </article>
+
+        <article>
+            <details><summary>/game/TriangularDeck</summary>
+                 <p><img src="img/WorkInProgress.png" width="50%" class="center" /></p>
             </details>
         </article>
 
         <!--------------------------------------------------------------------->
 
         <article>
-            <details><summary>/notable/quotes</summary>
+            <details><summary>/nice/quotes</summary>
                 <blockquote><strong>Las cosas evolucionan hacia o desde la nada.</strong> Cuando el anochecer se acerca a los valles, el viajero se pregunta dónde buscar cobijo para pasar la noche. Ve altos juncos creciendo por todos lados, los junta en una brazada, erguidos tal y como se mantienen en el campo, y los ata por arriba. Presto, una choza de hierba viva. A la mañana siguiente, antes de embarcarse en una nueva jornada de viaje, desata los juncos y presto, la choza se deconstruye, desaparece y vuelve a convertirse en una parte prácticamente indiferenciale del amplio campo de juncos. El paisaje original parece restaurarse de nuevo, pero quedan trazas minúsculas del refugio. Algún junco doblado o entrelazado aquí y allá. Queda también la memoria de la choza en la mente del viajero, y en la mente del lector que lee la descripción. El Wabi-sabi, en su forma más pura e idealizada, se refiere precisamente a estas delicadas trazas, a esta evidencia evanescente, en las fronteras de la nada.</blockquote>
                 <p>From <strong>Wabi-Sabi para Artistas, Diseñadores, Poetas y Filósofos</strong> by <em>Leonard Koren</em>.</p>
 
@@ -149,48 +314,25 @@
         </article>
 
         <article>
-            <details><summary>/notable/books</summary>
+            <details><summary>/nice/books</summary>
+                <p>Books work reading:</p>
                 <ul>
                     <li><strong>Cuentos completos</strong> by <em>Jorge Luís Borges</em></li>
-                    <li><strong>El caso Jane Eyre</strong> by <em>Jasper Fforde</em></li>
-                    <li><strong>Ciudad Permutación</strong> by <em>Greg Egan</em></li>
-                    <li><strong>La historia de tu vida</strong> by <em>Ted Chiang</em></li>
+                    <li><strong>The Eyre Affair</strong> by <em>Jasper Fforde</em></li>
+                    <li><strong>Permutation City</strong> by <em>Greg Egan</em></li>
+                    <li><strong>Stories of Your Life and Others</strong> by <em>Ted Chiang</em></li>
                     <li><strong>Seveneves</strong> by <em>Neal Stephenson</em></li>
-                    <li><strong>Dune</strong> by <em>Frank Herbert</em></li>
                     <li><strong>Measurement</strong> by <em>Paul Lockhart</em></li>
                     <li><strong>Ideas sobre la complejidad del mundo</strong> by <em>Jorge Wagensberg</em></li> 
                     <li><strong>Skin in the Game</strong> by <em>Nassim Nicholas Taleb</em></li>
-                    <li><strong>Los desposeídos</strong> by <em>Ursula K. Le Guin</em></li>
-                    <li><strong>El gen egoísta</strong> by <em>Richard Dawkins</em></li>
-                    <li><strong>The Art of Computer Programming</strong> by <em>Donald E. Knuth</em></li>
                 </ul>
             </details>
         </article>
-
-        <article>
-            <details><summary>/notable/games</summary>
-                <ul>
-                    <li><strong>Xodd</strong> by <em>Luis Bolaños Mures</em></li>
-                    <li><strong>Connect6</strong> by <em> Professor I-Chen Wu</em></li> 
-                    <li><strong>Trike</strong> by <em>Alek Erickson</em></li>
-                    <li><strong>Breakthrough</strong> by <em>Dan Troyka</em></li>
-                    <li><strong>Murus Gallicus</strong> by <em>Phil Leduc</em></li>
-                    <li><strong>Carcassonne</strong> by <em> Klaus-Jürgen Wrede</em></li>
-                    <li><strong>Jewels in the Sand</strong> by <em>Stanley Anderson</em></li>
-                    <li><strong>Vault</strong> by <em>Néstor Romeral Andrés</em></li>
-                    <li><strong>Othello</strong> by <em>Lewis Waterman/John W. Mollett</em></li>
-                    <li><strong>Backgammon</strong> traditional</li>
-                    <li><strong>Lines of Action</strong> by <em>Claude Soucie</em></li>
-                    <li><strong>Kulami</strong> by <em>Andreas Kuhnekath</em></li>
-                </ul>
-            </details>
-        </article>
-
 
         <!--------------------------------------------------------------------->
 
         <footer>
-            <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:16px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:16px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <a href="https://carloslunamota.github.io/">Carlos Luna-Mota</a></p>
+            <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:15px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:15px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <strong><a href="https://carloslunamota.github.io/">Carlos Luna-Mota</a></strong></p>
         </footer>
 
     </body>
