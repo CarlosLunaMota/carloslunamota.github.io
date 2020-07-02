@@ -51,14 +51,21 @@
                 <p><strong>IMPORT_CLM_PRINTF:</strong> <code>printf</code> helper functions</p>
                 <blockquote>
                     <pre>void    </pre><strong><pre>printf_reset</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_delete</pre></strong><pre>()</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_bold</pre></strong><pre>()</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_light</pre></strong><pre>()</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_strike</pre></strong><pre>()</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_underline</pre></strong><pre>()</pre></br>
+                    <pre>void    </pre><strong><pre>printf_move</pre></strong><pre>(int dx, int dy)</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_text_grey</pre></strong><pre>(int grey)</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_back_grey</pre></strong><pre>(int grey)</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_text_color</pre></strong><pre>(int r, int g, int b)</pre></br>
                     <pre>void    </pre><strong><pre>printf_set_back_color</pre></strong><pre>(int r, int g, int b)</pre></br>
+                </blockquote>
+                <p><strong>IMPORT_CLM_DAMM:</strong> checksum functions</p>
+                <blockquote>
+                    <pre>char    </pre><strong><pre>damm_dec</pre></strong><pre>(char *txt)</pre></br>
+                    <pre>char    </pre><strong><pre>damm_hex</pre></strong><pre>(char *txt)</pre></br>
                 </blockquote>
                 <p><strong>IMPORT_CLM_ARC4:</strong> unsafe cryptographic functions</p>
                 <blockquote>
@@ -210,7 +217,18 @@
 
         <article>
             <details><summary>/math/EgyptianTangram</summary>
-                 <p><img src="img/WorkInProgress.png" width="50%" class="center" /></p>
+                <p>This is a new tangram design with nice mathematical properties.</p>
+                <p><img src="img/EgyptianTangram.png" width="25%" class="center" /></p>
+                <p><strong>Publications:</strong></p>
+                <ul>
+                    <li>Pre-print of the article <a href="https://github.com/CarlosLunaMota/The-Egyptian-Tangram/blob/master/El%20Tangram%20Egipci%20-%20Diari%20de%20Disseny/El%20tangram%20egipci%20-%20diari%20de%20disseny.pdf"><strong>El tangram egipci: diari de disseny</strong></a> (in catalan, <em>The Egyptian Tangram: Design Diary</em>) where we introduce this new tangram design and explained its main mathematical features. The final version of the article was published in:</li>
+                    <p align="center">Luna-Mota, C. (2019). <a href="https://publicacions.iec.cat/PopulaFitxa.do?idCatalogacio=33008">«<strong>El tangram egipci: diari de disseny</strong>»</a>. <em>Nou Biaix</em>, 44</p>
+                    <li>The slides used in the talk <a href="https://github.com/CarlosLunaMota/The-Egyptian-Tangram/blob/master/Parlem%20de%20Tangrams%20-%20De%20la%20Xina%20a%20Egipte%20passant%20per%20Cornell%C3%A0/Parlem%20de%20tangrams.pdf"><strong>Parlem de tangrams: De la Xina a Egipte passant per Cornellà</strong></a> (in catalan, <em>Let's talk about tangrams: from China to Egypt passing through Cornellà</em>) that was performed in the Catalan Museum of Mathematics (<a href="http://mmaca.cat/">MMACA</a>) on January 29th 2020.</li>
+                    <li>The <a href="https://github.com/CarlosLunaMota/The-Egyptian-Tangram/blob/master/The%20Egyptian%20Tangram%20-%20Guide/The%20Egyptian%20Tangram%20Guide.pdf"><strong>Egyptian Tangram Guide</strong></a> (<em>work in progress</em>) an exhaustive compilation of all the mathematical properties of the Egyptian Tangram we are aware of.</li>
+                    <li>The <a href="https://github.com/CarlosLunaMota/The-Egyptian-Tangram/blob/master/The%20Egyptian%20Tangram%20-%20Printable%20Edition/The%20Egyptian%20Tangram%20-%20Printable%20Edition.pdf"><strong>Egyptian Tangram Print &amp; Play flyer</strong></a> (permission granted for personal or educational use only).</li>
+                    <li>The <a href="https://github.com/CarlosLunaMota/The-Egyptian-Tangram/blob/master/The%20Egyptian%20Tangram%20-%20STL"><strong>STL files</strong></a> you need to print a copy of the Egyptian Tangram in a 3D printer (permission granted for personal or educational use only).</li>
+                </ul>
+                <p>The Egyptian Tangram design is <strong>Copyright © 2019 Carlos Luna Mota. All Rights Reserved.</strong></p>
             </details>
         </article>
 
@@ -267,7 +285,7 @@
         <!--------------------------------------------------------------------->
 
         <footer>
-            <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:15px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:15px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <strong><a href="https://carloslunamota.github.io/">Carlos Luna-Mota</a></strong></p>
+            <p><a href="https://creativecommons.org/licenses/by/4.0"><img style="height:15px!important;margin-left:3px;" alt="Creative Commons" src="img/cc.svg" /><img  style="height:15px!important;margin-left:3px;" alt=" Attribution" src="img/by.svg" /></a> <strong><a target="_blank" href="https://mailhide.io/e/0zYSE" alt="contact information">Carlos Luna-Mota</a></strong></p>
         </footer>
 
     </body>
